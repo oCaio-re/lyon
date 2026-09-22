@@ -24,8 +24,11 @@ export const metadata: Metadata = {
   ],
   authors: [{ name: "Lyon Soluções Comerciais" }],
   icons: {
-    icon: "/logo.png",
-    apple: "/logo.png",
+    icon: [
+      { url: "/icon.png", type: "image/png" },
+      { url: "/favicon.ico" },
+    ],
+    apple: "/apple-icon.png",
   },
   openGraph: {
     title: "Lyon - Soluções Comerciais | Oportunidades Petronect e Petrobras",

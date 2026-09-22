@@ -36,9 +36,9 @@ export default function HomePage() {
     mensagem: "",
   });
 
-  const phoneRaw = "5522998303806";
-  const phoneDisplay = "(22) 99830-3806";
-  const emailDisplay = "caio@lyonsolucoes.com.br";
+  const phoneRaw = "5522999652200";
+  const phoneDisplay = "+55 22 99965-2200";
+  const emailDisplay = "comercial01.lyon@gmail.com";
   const addressDisplay = "Campos dos Goytacazes - RJ";
 
   const getWhatsAppLink = (customText?: string) => {
