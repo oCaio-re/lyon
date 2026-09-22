@@ -8,19 +8,21 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "Lyon - Soluções Comerciais | Oportunidades Petronect e Petrobras",
+  title: "Lyon Soluções Comerciais | Conectando Empresas, Fornecedores e Oportunidades",
   description:
-    "Integradora comercial sediada em Campos dos Goytacazes - RJ. Conectamos indústrias e fornecedores a grandes processos de compras e editais corporativos no Petronect e setor de Óleo & Gás.",
+    "Soluções comerciais e serviços especializados com agilidade e confiabilidade. Venda e distribuição, representação comercial, manutenção predial, SPDA e jardinagem para empresas, condomínios e indústria. Sede em Campos dos Goytacazes - RJ.",
   keywords: [
     "Lyon Soluções Comerciais",
-    "Petronect",
-    "Petrobras",
-    "Bacia de Campos",
+    "Venda e Distribuição Corporativa",
+    "Representação Comercial",
+    "SPDA",
+    "Manutenção Predial",
+    "Jardinagem Corporativa",
+    "Soluções sob Demanda",
     "Campos dos Goytacazes",
-    "Macaé",
-    "Fornecedores Petrobras",
-    "Integradora Comercial",
-    "Rogério Parente",
+    "Petrobras",
+    "Transpetro",
+    "Facilities",
   ],
   authors: [{ name: "Lyon Soluções Comerciais" }],
   icons: {
@@ -31,9 +33,9 @@ export const metadata: Metadata = {
     apple: "/apple-icon.png",
   },
   openGraph: {
-    title: "Lyon - Soluções Comerciais | Oportunidades Petronect e Petrobras",
+    title: "Lyon Soluções Comerciais | Conectando Empresas, Fornecedores e Oportunidades",
     description:
-      "Integradora comercial sediada em Campos dos Goytacazes - RJ, conectando fabricantes e fornecedores a oportunidades no Petronect e grandes operadoras.",
+      "Atuamos na venda, distribuição e representação de produtos, além da prestação de serviços especializados para empresas que buscam confiabilidade, atendimento próximo e capacidade de execução.",
     type: "website",
     locale: "pt_BR",
   },

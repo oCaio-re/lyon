@@ -1,17 +1,21 @@
 # Lyon Soluções Comerciais
 
-Ecossistema de negócios da Lyon, integradora comercial sediada em Campos dos Goytacazes - RJ, que conecta fabricantes e fornecedores a oportunidades de compras corporativas e licitações no setor de Óleo & Gás, com foco em Petronect e Petrobras.
+Ecossistema de negócios da Lyon, empresa de soluções comerciais e serviços sediada em Campos dos Goytacazes - RJ, atuando como elo comercial e operacional na venda, distribuição, representação comercial e prestação de serviços especializados (manutenção predial, SPDA, jardinagem e sob demanda) para diversos segmentos corporativos, com sólida atuação e credibilidade no setor de Óleo & Gás (Petrobras e Transpetro).
 
 
 ## Language
 
 **Integradora Comercial**:
-A própria Lyon, que localiza demandas em plataformas de compras, consolida cotações de múltiplos fornecedores e submete a proposta final à contratante.
+A própria Lyon, que localiza demandas, consolida cotações, conecta fabricantes a grandes contas e executa serviços especializados corporativos.
 _Avoid_: Consultoria pura, intermediária informal, corretora
 
+**Cliente Corporativo**:
+Empresa, condomínio, indústria, operadora ou instituição compradora de produtos ou contratante de serviços especializados da Lyon (ex: Petrobras, Transpetro, construtoras, facilities).
+_Avoid_: Consumidor final, cliente avulso
+
 **Fornecedor Parceiro**:
-Fabricante ou distribuidor cujos produtos e cotações são integrados pela Lyon para composição de propostas técnicas e comerciais.
-_Avoid_: Cliente, subcontratado genérico
+Fabricante ou distribuidor cujos produtos e marcas são distribuídos, representados ou integrados pela Lyon em propostas comerciais e contratos corporativos (ex: Plaxmetal, Movement, Kodak, Samsung).
+_Avoid_: Subcontratado genérico, terceirizado avulso
 
 **Contratante**:
 A empresa compradora que publica a demanda ou edital (primariamente Petrobras).
