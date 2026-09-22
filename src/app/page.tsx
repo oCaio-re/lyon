@@ -59,7 +59,7 @@ export default function HomePage() {
 
   const phoneRaw = "5522999652200";
   const phoneDisplay = "(22) 99965 - 2200";
-  const emailDisplay = "comercial01.lyon@gmail.com";
+  const emailDisplay = "rogerio@lyonsolucoes.com.br";
   const addressDisplay =
     "Rua Visconde de Itaboraí, nº 390 altos - Parque Rosário, Campos dos Goytacazes/RJ";
 
