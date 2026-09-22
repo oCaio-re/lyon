@@ -18,7 +18,6 @@ import {
   Send,
   Shield,
   ShieldCheck,
-  Sparkles,
   TrendingUp,
   Truck,
   Users,
@@ -69,24 +68,61 @@ export default function HomePage() {
   };
 
   return (
-    <div className="min-h-screen flex flex-col font-sans bg-slate-50 text-slate-900 selection:bg-red-900/20 selection:text-red-900">
-      {/* ── HEADER / NAVBAR ── */}
-      <header className="sticky top-0 z-50 bg-white/95 backdrop-blur-md border-b border-slate-200 shadow-xs transition-all">
+    <div className="min-h-screen flex flex-col font-sans bg-white text-slate-900 selection:bg-slate-200 selection:text-slate-900">
+      {/* ── TOP BAR (INSTITUCIONAL SUTIL) ── */}
+      <div className="bg-slate-100 border-b border-slate-200 text-xs text-slate-600 py-2">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between gap-2">
+          <div className="flex items-center gap-2">
+            <span className="inline-block w-2 h-2 rounded-full bg-emerald-500" />
+            <span className="font-medium text-slate-700">
+              Sede em Campos dos Goytacazes - RJ • Atuação Bacia de Campos & Polo Macaé
+            </span>
+          </div>
+          <div className="flex items-center gap-6">
+            <a
+              href={`mailto:${emailDisplay}`}
+              className="hover:text-[#132238] transition-colors flex items-center gap-1.5"
+            >
+              <Mail className="w-3.5 h-3.5 text-slate-500" />
+              <span>{emailDisplay}</span>
+            </a>
+            <a
+              href={getWhatsAppLink()}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hover:text-[#132238] font-semibold text-slate-800 transition-colors flex items-center gap-1.5"
+            >
+              <Phone className="w-3.5 h-3.5 text-emerald-600" />
+              <span>{phoneDisplay}</span>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      {/* ── HEADER / NAVBAR (BRANCO & AZUL MARINHO) ── */}
+      <header className="sticky top-0 z-50 bg-white/95 backdrop-blur-md border-b border-slate-200 shadow-xs">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
-          {/* Brand Logo */}
-          <a href="#" className="flex items-center gap-3.5 group">
-            <div className="relative w-12 h-12 flex items-center justify-center p-1 rounded-lg bg-slate-900 shadow-sm group-hover:scale-105 transition-transform duration-200">
+          {/* Brand Logo com detalhe discreto do cartão */}
+          <a href="#" className="flex items-center gap-4 group">
+            <div className="relative w-12 h-12 flex items-center justify-center">
               <Image
-                src="/logo.png"
+                src="/logo-navy.svg"
                 alt="Logo Lyon Soluções Comerciais"
-                width={40}
-                height={40}
-                className="object-contain filter invert brightness-200"
+                width={42}
+                height={42}
+                className="object-contain"
                 priority
               />
             </div>
+
+            {/* O detalhe clássico do cartão: filete azul marinho + fino filete vermelho */}
+            <div className="h-8 flex items-center gap-1">
+              <div className="w-1 h-8 bg-[#132238] rounded-full" />
+              <div className="w-0.5 h-8 bg-red-600 rounded-full" />
+            </div>
+
             <div className="flex flex-col">
-              <span className="text-xl font-bold tracking-tight text-slate-950 font-serif leading-none">
+              <span className="text-2xl font-bold tracking-tight text-[#132238] font-serif leading-none">
                 LYON
               </span>
               <span className="text-[11px] font-semibold tracking-wider text-slate-600 uppercase mt-1">
@@ -99,31 +135,31 @@ export default function HomePage() {
           <nav className="hidden md:flex items-center gap-8 text-sm font-medium text-slate-700">
             <a
               href="#sobre"
-              className="hover:text-red-800 transition-colors py-1 relative after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-red-800 hover:after:w-full after:transition-all"
+              className="hover:text-[#132238] transition-colors py-1 relative after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-[#132238] hover:after:w-full after:transition-all"
             >
               Sobre Nós
             </a>
             <a
               href="#como-atuamos"
-              className="hover:text-red-800 transition-colors py-1 relative after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-red-800 hover:after:w-full after:transition-all"
+              className="hover:text-[#132238] transition-colors py-1 relative after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-[#132238] hover:after:w-full after:transition-all"
             >
               Como Atuamos
             </a>
             <a
               href="#diferenciais"
-              className="hover:text-red-800 transition-colors py-1 relative after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-red-800 hover:after:w-full after:transition-all"
+              className="hover:text-[#132238] transition-colors py-1 relative after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-[#132238] hover:after:w-full after:transition-all"
             >
               Diferenciais
             </a>
             <a
               href="#fornecedores"
-              className="hover:text-red-800 transition-colors py-1 relative after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-red-800 hover:after:w-full after:transition-all"
+              className="hover:text-[#132238] transition-colors py-1 relative after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-[#132238] hover:after:w-full after:transition-all"
             >
               Seja Parceiro
             </a>
             <a
               href="#contato"
-              className="hover:text-red-800 transition-colors py-1 relative after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-red-800 hover:after:w-full after:transition-all"
+              className="hover:text-[#132238] transition-colors py-1 relative after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-[#132238] hover:after:w-full after:transition-all"
             >
               Contato
             </a>
@@ -135,9 +171,9 @@ export default function HomePage() {
               href={getWhatsAppLink()}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 px-5 py-2.5 rounded-lg text-sm font-semibold text-white bg-red-800 hover:bg-red-900 shadow-sm hover:shadow-md transition-all duration-200 active:scale-95"
+              className="inline-flex items-center gap-2 px-5 py-2.5 rounded-lg text-sm font-semibold text-white bg-[#132238] hover:bg-[#1b3150] shadow-sm hover:shadow-md transition-all active:scale-98"
             >
-              <Phone className="w-4 h-4" />
+              <Phone className="w-4 h-4 text-emerald-400" />
               <span>Falar no WhatsApp</span>
             </a>
           </div>
@@ -146,7 +182,7 @@ export default function HomePage() {
           <button
             type="button"
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            className="md:hidden p-2 rounded-lg text-slate-700 hover:bg-slate-100 focus:outline-hidden"
+            className="md:hidden p-2 rounded-lg text-slate-700 hover:bg-slate-100"
             aria-label="Alternar menu"
           >
             {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
@@ -196,9 +232,9 @@ export default function HomePage() {
                 href={getWhatsAppLink()}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-full flex items-center justify-center gap-2 px-4 py-3 rounded-lg text-sm font-semibold text-white bg-red-800 hover:bg-red-900"
+                className="w-full flex items-center justify-center gap-2 px-4 py-3 rounded-lg text-sm font-semibold text-white bg-[#132238] hover:bg-[#1b3150]"
               >
-                <Phone className="w-4 h-4" />
+                <Phone className="w-4 h-4 text-emerald-400" />
                 <span>Falar com Rogério Parente</span>
               </a>
             </div>
@@ -206,162 +242,156 @@ export default function HomePage() {
         )}
       </header>
 
-      {/* ── HERO SECTION ── */}
-      <section className="relative overflow-hidden bg-gradient-to-b from-[#0c182b] via-[#102138] to-[#0c182b] text-white py-20 lg:py-28">
-        {/* Subtle background effects */}
-        <div className="absolute inset-0 bg-[radial-gradient(#1e3a63_1px,transparent_1px)] [background-size:24px_24px] opacity-25 pointer-events-none" />
-        <div className="absolute -top-40 -right-40 w-96 h-96 bg-red-900/20 rounded-full blur-3xl pointer-events-none" />
-        <div className="absolute -bottom-40 -left-40 w-96 h-96 bg-blue-900/30 rounded-full blur-3xl pointer-events-none" />
-
-        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center">
-            {/* Left Column: Value Proposition */}
+      {/* ── HERO SECTION (CLARA, PREDOMINÂNCIA BRANCO & AZUL MARINHO) ── */}
+      <section className="relative bg-gradient-to-b from-white via-slate-50 to-white py-16 sm:py-24 border-b border-slate-200">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+            {/* Left Column: Clear Value Proposition */}
             <div className="lg:col-span-7 space-y-6 text-center lg:text-left">
-              <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full text-xs font-semibold tracking-wide uppercase bg-slate-800/90 text-red-200 border border-red-800/40 backdrop-blur-sm">
-                <span className="w-2 h-2 rounded-full bg-red-500 animate-pulse" />
+              {/* Badge sutil com acento vermelho mínimo */}
+              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-semibold uppercase tracking-wider bg-slate-100 text-[#132238] border border-slate-300">
+                <span className="w-1.5 h-1.5 rounded-full bg-red-600" />
                 Inteligência Comercial & Oportunidades Petronect
               </div>
 
-              <h1 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight text-white leading-tight font-serif">
-                Conectando indústrias de excelência às grandes demandas da{" "}
-                <span className="text-transparent bg-clip-text bg-gradient-to-r from-red-400 via-rose-300 to-amber-200">
+              <h1 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight text-[#132238] leading-tight font-serif">
+                Conectamos indústrias de excelência às demandas corporativas da{" "}
+                <span className="text-[#132238] underline decoration-red-600 decoration-3 underline-offset-8">
                   Petrobras
                 </span>
                 .
               </h1>
 
-              <p className="text-base sm:text-lg text-slate-300 max-w-2xl mx-auto lg:mx-0 leading-relaxed">
-                A <strong>Lyon Soluções Comerciais</strong> é a integradora que
-                mapeia demandas no <strong>Petronect</strong>, equaliza cotações
-                diretamente com fabricantes qualificados e submete propostas
-                integradas de alto padrão técnico, com total compliance e agilidade.
+              <p className="text-base sm:text-lg text-slate-600 max-w-2xl mx-auto lg:mx-0 leading-relaxed font-normal">
+                A <strong>Lyon Soluções Comerciais</strong> atua como integradora
+                estratégica: mapeamos tomadas de preço e editais no portal{" "}
+                <strong>Petronect</strong>, equalizamos cotações diretamente com
+                fabricantes parceiros e submetemos propostas técnicas completas, com
+                rigor documental e máxima agilidade.
               </p>
 
-              {/* Action buttons */}
+              {/* Botões de Ação */}
               <div className="pt-2 flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4">
                 <a
                   href={getWhatsAppLink()}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="w-full sm:w-auto inline-flex items-center justify-center gap-3 px-7 py-3.5 rounded-xl font-semibold text-white bg-red-800 hover:bg-red-900 shadow-lg shadow-red-950/40 hover:shadow-red-950/60 transition-all active:scale-98"
+                  className="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 px-6 py-3.5 rounded-xl font-semibold text-white bg-[#132238] hover:bg-[#1c3252] shadow-sm hover:shadow-md transition-all active:scale-98"
                 >
-                  <Phone className="w-4 h-4" />
-                  <span>Falar com o Diretor Rogério Parente</span>
+                  <Phone className="w-4 h-4 text-emerald-400" />
+                  <span>Falar com Rogério Parente</span>
                 </a>
 
                 <a
                   href="#como-atuamos"
-                  className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-xl font-medium text-slate-200 bg-slate-800/70 hover:bg-slate-800 border border-slate-700/80 transition-all hover:text-white"
+                  className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-xl font-semibold text-slate-700 bg-white hover:bg-slate-50 border border-slate-300 shadow-xs transition-colors"
                 >
                   <span>Entenda Nossa Operação</span>
                   <ChevronRight className="w-4 h-4 text-slate-400" />
                 </a>
               </div>
 
-              {/* Key Trust Highlights */}
-              <div className="pt-8 border-t border-slate-800/80 grid grid-cols-1 sm:grid-cols-3 gap-4 text-left">
-                <div className="flex items-start gap-3 bg-slate-800/40 p-3 rounded-lg border border-slate-800">
-                  <MapPin className="w-5 h-5 text-red-400 shrink-0 mt-0.5" />
-                  <div>
-                    <div className="text-xs font-semibold text-slate-200 uppercase tracking-wide">
-                      Base Operacional
-                    </div>
-                    <div className="text-xs text-slate-400 font-medium">
-                      Campos dos Goytacazes - RJ (Bacia de Campos)
-                    </div>
+              {/* Destaques de Credibilidade em formato claro */}
+              <div className="pt-6 border-t border-slate-200 grid grid-cols-1 sm:grid-cols-3 gap-4 text-left">
+                <div className="p-3 bg-white rounded-lg border border-slate-200 shadow-xs">
+                  <div className="flex items-center gap-1.5 text-xs font-bold text-[#132238] uppercase">
+                    <MapPin className="w-3.5 h-3.5 text-red-600" />
+                    Sede Operacional
+                  </div>
+                  <div className="text-xs text-slate-600 mt-1">
+                    Campos dos Goytacazes - RJ (Bacia de Campos)
                   </div>
                 </div>
 
-                <div className="flex items-start gap-3 bg-slate-800/40 p-3 rounded-lg border border-slate-800">
-                  <ShieldCheck className="w-5 h-5 text-emerald-400 shrink-0 mt-0.5" />
-                  <div>
-                    <div className="text-xs font-semibold text-slate-200 uppercase tracking-wide">
-                      Compliance & Editais
-                    </div>
-                    <div className="text-xs text-slate-400 font-medium">
-                      Rigor técnico em licitações e requisições
-                    </div>
+                <div className="p-3 bg-white rounded-lg border border-slate-200 shadow-xs">
+                  <div className="flex items-center gap-1.5 text-xs font-bold text-[#132238] uppercase">
+                    <ShieldCheck className="w-3.5 h-3.5 text-[#132238]" />
+                    Compliance & Rigor
+                  </div>
+                  <div className="text-xs text-slate-600 mt-1">
+                    Propostas alinhadas aos cadernos da Petrobras
                   </div>
                 </div>
 
-                <div className="flex items-start gap-3 bg-slate-800/40 p-3 rounded-lg border border-slate-800">
-                  <Handshake className="w-5 h-5 text-amber-400 shrink-0 mt-0.5" />
-                  <div>
-                    <div className="text-xs font-semibold text-slate-200 uppercase tracking-wide">
-                      Canal de Indústrias
-                    </div>
-                    <div className="text-xs text-slate-400 font-medium">
-                      Escoamento contínuo de fabricantes parceiros
-                    </div>
+                <div className="p-3 bg-white rounded-lg border border-slate-200 shadow-xs">
+                  <div className="flex items-center gap-1.5 text-xs font-bold text-[#132238] uppercase">
+                    <Handshake className="w-3.5 h-3.5 text-[#132238]" />
+                    Rede de Parceiros
+                  </div>
+                  <div className="text-xs text-slate-600 mt-1">
+                    Cotações diretas de fábrica sem intermediários
                   </div>
                 </div>
               </div>
             </div>
 
-            {/* Right Column: Corporate Badge Card */}
+            {/* Right Column: Card Executivo Claro (inspirado na assinatura de email) */}
             <div className="lg:col-span-5 flex justify-center">
-              <div className="relative w-full max-w-md bg-gradient-to-b from-slate-900 to-slate-950 p-8 rounded-2xl border border-slate-800 shadow-2xl">
-                {/* Decorative border line in subtle crimson */}
-                <div className="absolute top-0 left-8 right-8 h-1 bg-gradient-to-r from-transparent via-red-700 to-transparent rounded-full" />
+              <div className="w-full max-w-md bg-white p-8 rounded-2xl border-2 border-slate-200 shadow-lg relative overflow-hidden">
+                {/* Linha de acabamento superior */}
+                <div className="absolute top-0 left-0 right-0 h-1.5 flex">
+                  <div className="w-3/4 bg-[#132238]" />
+                  <div className="w-1/4 bg-red-600" />
+                </div>
 
-                <div className="flex flex-col items-center text-center space-y-5">
-                  <div className="w-24 h-24 p-2 rounded-2xl bg-white shadow-md flex items-center justify-center">
+                <div className="flex flex-col items-center text-center space-y-5 pt-2">
+                  <div className="w-24 h-24 p-2 rounded-xl bg-slate-50 border border-slate-200 flex items-center justify-center shadow-xs">
                     <Image
-                      src="/logo.png"
+                      src="/logo-navy.svg"
                       alt="Brasão Lyon"
-                      width={80}
-                      height={80}
+                      width={70}
+                      height={70}
                       className="object-contain"
                     />
                   </div>
 
                   <div>
-                    <h3 className="text-2xl font-bold font-serif text-white tracking-wide">
+                    <h3 className="text-2xl font-bold font-serif text-[#132238] tracking-wide">
                       LYON
                     </h3>
-                    <p className="text-xs font-semibold tracking-widest text-red-400 uppercase mt-1">
+                    <p className="text-xs font-bold tracking-widest text-slate-600 uppercase mt-1">
                       Soluções Comerciais
                     </p>
                   </div>
 
-                  <p className="text-xs text-slate-400 leading-relaxed">
-                    Atuação especializada no setor offshore, óleo & gás e energia,
-                    conectando propostas competitivas às demandas do portal Petronect.
+                  <p className="text-xs text-slate-600 leading-relaxed max-w-xs">
+                    Representação comercial e integração de suprimentos para o setor
+                    de Óleo & Gás e editais corporativos.
                   </p>
 
-                  <div className="w-full bg-slate-800/60 rounded-xl p-4 border border-slate-700/50 text-left space-y-2.5 text-xs">
-                    <div className="flex items-center justify-between text-slate-300">
-                      <span className="text-slate-400">Direção Geral:</span>
-                      <strong className="text-white">Rogério Parente</strong>
+                  <div className="w-full bg-slate-50 rounded-xl p-4 border border-slate-200 text-left space-y-2 text-xs">
+                    <div className="flex items-center justify-between">
+                      <span className="text-slate-500 font-medium">Direção Geral:</span>
+                      <strong className="text-[#132238] font-semibold">Rogério Parente</strong>
                     </div>
-                    <div className="flex items-center justify-between text-slate-300">
-                      <span className="text-slate-400">Atendimento:</span>
+                    <div className="flex items-center justify-between">
+                      <span className="text-slate-500 font-medium">Atendimento:</span>
                       <a
                         href={getWhatsAppLink()}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="text-red-400 font-semibold hover:underline"
+                        className="text-[#132238] font-bold hover:underline flex items-center gap-1"
                       >
-                        {phoneDisplay}
+                        <span>{phoneDisplay}</span>
                       </a>
                     </div>
-                    <div className="flex items-center justify-between text-slate-300">
-                      <span className="text-slate-400">E-mail:</span>
-                      <span className="text-slate-200">{emailDisplay}</span>
+                    <div className="flex items-center justify-between">
+                      <span className="text-slate-500 font-medium">E-mail:</span>
+                      <span className="text-slate-700 font-medium">{emailDisplay}</span>
                     </div>
-                    <div className="flex items-center justify-between text-slate-300">
-                      <span className="text-slate-400">Sede:</span>
-                      <span className="text-slate-200">Campos dos Goytacazes / RJ</span>
+                    <div className="flex items-center justify-between">
+                      <span className="text-slate-500 font-medium">Localização:</span>
+                      <span className="text-slate-700 font-medium">Campos dos Goytacazes - RJ</span>
                     </div>
                   </div>
 
                   <div className="w-full pt-1">
                     <a
                       href="#contato"
-                      className="w-full py-2.5 px-4 rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-200 text-xs font-semibold flex items-center justify-center gap-2 border border-slate-700 transition-colors"
+                      className="w-full py-2.5 px-4 rounded-lg bg-slate-100 hover:bg-slate-200 text-[#132238] text-xs font-semibold flex items-center justify-center gap-2 border border-slate-300 transition-colors"
                     >
-                      <span>Entrar em contato direto</span>
-                      <ChevronRight className="w-3.5 h-3.5" />
+                      <span>Solicitar contato ou cotação</span>
+                      <ChevronRight className="w-3.5 h-3.5 text-[#132238]" />
                     </a>
                   </div>
                 </div>
@@ -375,108 +405,107 @@ export default function HomePage() {
       <section id="sobre" className="py-20 bg-white border-b border-slate-200">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
-            {/* Left: Content */}
+            {/* Left: Text Content */}
             <div className="lg:col-span-7 space-y-6">
-              <div className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-red-800 bg-red-50 px-3 py-1 rounded-md border border-red-200">
-                <Building2 className="w-3.5 h-3.5" />
-                Sobre a Empresa
+              <div className="flex items-center gap-2">
+                <div className="w-1 h-5 bg-red-600 rounded-full" />
+                <span className="text-xs font-bold uppercase tracking-wider text-[#132238]">
+                  Quem Somos
+                </span>
               </div>
 
-              <h2 className="text-3xl sm:text-4xl font-extrabold text-slate-950 font-serif leading-tight">
-                A ponte estratégica entre a capacidade fabril e as grandes contratações.
+              <h2 className="text-3xl sm:text-4xl font-extrabold text-[#132238] font-serif leading-tight">
+                A ponte ágil entre a indústria e as maiores contratações de energia.
               </h2>
 
-              <div className="space-y-4 text-slate-600 text-base leading-relaxed">
+              <div className="space-y-4 text-slate-700 text-base leading-relaxed font-normal">
                 <p>
-                  Sediada estrategicamente em <strong>Campos dos Goytacazes - RJ</strong>,
-                  ao lado da Bacia de Campos e polo de Macaé, a{" "}
-                  <strong>Lyon Soluções Comerciais</strong> foi estruturada para
-                  superar um desafio constante do mercado: a complexidade documental
-                  e operacional para fornecer produtos industriais a grandes
-                  companhias, especialmente em editais da <strong>Petrobras</strong> no{" "}
+                  Com base em <strong>Campos dos Goytacazes - RJ</strong>, polo
+                  estratégico da Bacia de Campos e vizinha a Macaé, a{" "}
+                  <strong>Lyon Soluções Comerciais</strong> foi criada para resolver
+                  uma necessidade clara do mercado: simplificar o acesso de
+                  indústrias fornecedoras aos processos licitatórios e tomadas de
+                  preço da <strong>Petrobras</strong> através da plataforma{" "}
                   <strong>Petronect</strong>.
                 </p>
                 <p>
-                  Fundada e liderada por <strong>Rogério Parente</strong>, a Lyon não é
-                  uma intermediária passiva. Nós operamos ativamente como uma{" "}
-                  <strong>Integradora Comercial</strong>: acompanhamos diariamente
-                  os processos licitatórios abertos, filtramos as especificações
-                  técnicas exatas, buscamos os melhores fornecedores parceiros,
-                  equalizamos as cotações e estruturamos uma proposta robusta,
-                  competitiva e em total conformidade.
+                  Sob a direção de <strong>Rogério Parente</strong>, a Lyon opera como{" "}
+                  <strong>Integradora Comercial</strong>. Nossa equipe acompanha as
+                  requisições publicadas, localiza os fabricantes ideais para cada
+                  linha de produto, coleta e equaliza propostas técnicas e submete a
+                  oferta consolidada em plena conformidade com os requisitos do
+                  edital.
                 </p>
                 <p>
-                  Para os fornecedores, somos um canal de vendas direto e recorrente
-                  sem o custo ou atrito de manter uma estrutura interna dedicada a
-                  licitações corporativas. Para as contratantes, representamos a
-                  garantia de orçamentos precisos, comunicação rápida e seriedade em
-                  cada etapa.
+                  Dessa forma, o fornecedor parceiro ganha um canal de vendas direto
+                  e qualificado sem precisar absorver custos fixos com estruturas
+                  pesadas de licitação.
                 </p>
               </div>
 
-              {/* Core Pillars Grid */}
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-4">
+              {/* Pilares rápidos */}
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-2">
                 <div className="p-4 rounded-xl bg-slate-50 border border-slate-200">
-                  <div className="font-semibold text-slate-900 text-sm flex items-center gap-2">
-                    <CheckCircle2 className="w-4 h-4 text-red-700" />
-                    Foco no Decisor
+                  <div className="font-bold text-[#132238] text-sm flex items-center gap-2">
+                    <CheckCircle2 className="w-4 h-4 text-[#132238]" />
+                    Atendimento com o Decisor
                   </div>
                   <p className="text-xs text-slate-600 mt-1">
-                    Atendimento ágil direto com a liderança para tomada rápida de decisões em cotações urgentes.
+                    Comunicação rápida e sem intermediários com a diretoria da Lyon.
                   </p>
                 </div>
 
                 <div className="p-4 rounded-xl bg-slate-50 border border-slate-200">
-                  <div className="font-semibold text-slate-900 text-sm flex items-center gap-2">
-                    <CheckCircle2 className="w-4 h-4 text-red-700" />
-                    Inteligência em Petronect
+                  <div className="font-bold text-[#132238] text-sm flex items-center gap-2">
+                    <CheckCircle2 className="w-4 h-4 text-[#132238]" />
+                    Domínio do Petronect
                   </div>
                   <p className="text-xs text-slate-600 mt-1">
-                    Conhecimento aprofundado dos prazos, parâmetros de lance e exigências de conformidade técnica.
+                    Experiência prática nos parâmetros técnicos, prazos e rotinas de compras.
                   </p>
                 </div>
               </div>
             </div>
 
-            {/* Right: Visual Trust Card */}
+            {/* Right: Clean Corporate Box */}
             <div className="lg:col-span-5">
-              <div className="bg-slate-900 text-white rounded-2xl p-8 shadow-xl relative overflow-hidden">
-                <div className="absolute top-0 right-0 w-48 h-48 bg-red-800/20 rounded-full blur-2xl" />
-
-                <div className="relative space-y-6">
-                  <div className="flex items-center gap-4 border-b border-slate-800 pb-6">
-                    <div className="w-14 h-14 rounded-xl bg-white flex items-center justify-center p-1 shrink-0">
+              <div className="bg-slate-50 rounded-2xl p-8 border border-slate-200 shadow-sm relative">
+                <div className="space-y-6">
+                  <div className="flex items-center gap-4 border-b border-slate-200 pb-6">
+                    <div className="w-14 h-14 rounded-xl bg-white border border-slate-200 flex items-center justify-center p-2 shrink-0 shadow-xs">
                       <Image
-                        src="/logo.png"
+                        src="/logo-navy.svg"
                         alt="Lyon"
-                        width={48}
-                        height={48}
+                        width={44}
+                        height={44}
                         className="object-contain"
                       />
                     </div>
                     <div>
-                      <h4 className="font-serif text-lg font-bold">Compromisso Lyon</h4>
-                      <p className="text-xs text-slate-400">Nossa Proposta de Valor</p>
+                      <h4 className="font-serif text-lg font-bold text-[#132238]">
+                        Valores da Lyon
+                      </h4>
+                      <p className="text-xs text-slate-500">Transparência & Desempenho</p>
                     </div>
                   </div>
 
-                  <blockquote className="text-sm text-slate-300 italic leading-relaxed border-l-2 border-red-700 pl-4 py-1">
-                    &ldquo;Nossa missão é aproximar quem tem produtos de primeira linha
-                    das demandas mais exigentes do país, transformando editais burocráticos
-                    em contratos reais e fornecimento eficiente.&rdquo;
+                  <blockquote className="text-sm text-slate-700 italic leading-relaxed border-l-2 border-red-600 pl-4 py-1">
+                    &ldquo;Nossa meta diária é converter oportunidades do Petronect em
+                    fornecimentos reais para a indústria nacional, com seriedade técnica
+                    e lealdade aos nossos parceiros.&rdquo;
                   </blockquote>
 
-                  <div className="pt-2">
-                    <div className="text-sm font-semibold text-white">Rogério Parente</div>
-                    <div className="text-xs text-red-400 font-medium">
-                      Fundador & Diretor Geral — Lyon Soluções Comerciais
+                  <div>
+                    <div className="text-sm font-bold text-[#132238]">Rogério Parente</div>
+                    <div className="text-xs text-slate-600 font-medium">
+                      Diretor Geral — Lyon Soluções Comerciais
                     </div>
                   </div>
 
-                  <div className="pt-4 border-t border-slate-800 flex items-center justify-between text-xs text-slate-400">
+                  <div className="pt-4 border-t border-slate-200 flex items-center justify-between text-xs text-slate-600 font-medium">
                     <span>Campos dos Goytacazes - RJ</span>
-                    <span className="text-emerald-400 flex items-center gap-1.5">
-                      <span className="w-2 h-2 rounded-full bg-emerald-400 animate-ping" />
+                    <span className="text-emerald-700 flex items-center gap-1.5 font-semibold">
+                      <span className="w-2 h-2 rounded-full bg-emerald-600" />
                       Operação Ativa
                     </span>
                   </div>
@@ -487,231 +516,219 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* ── SECTION: COMO ATUAMOS ── */}
+      {/* ── SECTION: COMO ATUAMOS (4 PASSOS CLAROS) ── */}
       <section id="como-atuamos" className="py-20 bg-slate-50 border-b border-slate-200">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center max-w-3xl mx-auto space-y-4 mb-16">
-            <div className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-red-800 bg-red-100/70 px-3 py-1 rounded-md">
-              <TrendingUp className="w-3.5 h-3.5" />
-              Processo de Trabalho
+            <div className="flex items-center justify-center gap-2">
+              <div className="w-1 h-5 bg-red-600 rounded-full" />
+              <span className="text-xs font-bold uppercase tracking-wider text-[#132238]">
+                Etapas Operacionais
+              </span>
             </div>
-            <h2 className="text-3xl sm:text-4xl font-extrabold text-slate-950 font-serif">
-              Como funciona a nossa operação
+            <h2 className="text-3xl sm:text-4xl font-extrabold text-[#132238] font-serif">
+              Como funciona nossa atuação integrada
             </h2>
             <p className="text-base text-slate-600">
-              Conheça as etapas transparentes através das quais a Lyon transforma
-              oportunidades do Petronect em cotações vencedoras para nossa rede de parceiros.
+              Conheça as etapas transparentes que transformam requisições de compras em propostas competitivas.
             </p>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
             {/* Step 1 */}
-            <div className="bg-white p-6 rounded-2xl border border-slate-200 shadow-xs hover:shadow-md transition-shadow relative flex flex-col justify-between">
+            <div className="bg-white p-6 rounded-xl border border-slate-200 shadow-xs hover:shadow-md transition-shadow flex flex-col justify-between">
               <div>
-                <div className="w-12 h-12 rounded-xl bg-slate-900 text-white flex items-center justify-center font-bold text-lg mb-5 shadow-xs">
+                <div className="w-10 h-10 rounded-lg bg-[#132238] text-white flex items-center justify-center font-bold text-sm mb-4">
                   01
                 </div>
-                <h3 className="text-lg font-bold text-slate-900 mb-2">
-                  Captação de Oportunidades
+                <h3 className="text-base font-bold text-[#132238] mb-2">
+                  Captação de Editais
                 </h3>
-                <p className="text-sm text-slate-600 leading-relaxed">
-                  Monitoramento contínuo do portal Petronect e requisições abertas pela Petrobras, identificando demandas que coincidem com o portfólio de nossos parceiros.
+                <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
+                  Varredura diária no portal Petronect identificando requisições e licitações abertas pela Petrobras que demandam produtos industriais.
                 </p>
               </div>
-              <div className="mt-6 pt-4 border-t border-slate-100 text-xs font-medium text-slate-500 flex items-center gap-1.5">
-                <Clock className="w-3.5 h-3.5 text-red-700" />
-                Agilidade na triagem de editais
+              <div className="mt-6 pt-4 border-t border-slate-100 text-xs text-slate-500 flex items-center gap-1.5 font-medium">
+                <Clock className="w-3.5 h-3.5 text-[#132238]" />
+                Triagem tempestiva de prazos
               </div>
             </div>
 
             {/* Step 2 */}
-            <div className="bg-white p-6 rounded-2xl border border-slate-200 shadow-xs hover:shadow-md transition-shadow relative flex flex-col justify-between">
+            <div className="bg-white p-6 rounded-xl border border-slate-200 shadow-xs hover:shadow-md transition-shadow flex flex-col justify-between relative">
+              {/* Sutil detalhe vermelho de destaque na etapa de cotação */}
+              <div className="absolute top-0 left-6 right-6 h-0.5 bg-red-600 rounded-full" />
               <div>
-                <div className="w-12 h-12 rounded-xl bg-red-800 text-white flex items-center justify-center font-bold text-lg mb-5 shadow-xs">
+                <div className="w-10 h-10 rounded-lg bg-[#132238] text-white flex items-center justify-center font-bold text-sm mb-4">
                   02
                 </div>
-                <h3 className="text-lg font-bold text-slate-900 mb-2">
-                  Cotação com Fornecedores
+                <h3 className="text-base font-bold text-[#132238] mb-2">
+                  Cotação com Parceiros
                 </h3>
-                <p className="text-sm text-slate-600 leading-relaxed">
-                  Acionamos as indústrias e distribuidores parceiros com especificações claras de produtos e prazos, coletando preços competitivos de fábrica.
+                <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
+                  Envio das especificações técnicas para indústrias e fabricantes da nossa rede para coleta e equalização de preços diretos.
                 </p>
               </div>
-              <div className="mt-6 pt-4 border-t border-slate-100 text-xs font-medium text-slate-500 flex items-center gap-1.5">
-                <FileSpreadsheet className="w-3.5 h-3.5 text-red-700" />
+              <div className="mt-6 pt-4 border-t border-slate-100 text-xs text-slate-500 flex items-center gap-1.5 font-medium">
+                <FileSpreadsheet className="w-3.5 h-3.5 text-red-600" />
                 Equalização técnica de preços
               </div>
             </div>
 
             {/* Step 3 */}
-            <div className="bg-white p-6 rounded-2xl border border-slate-200 shadow-xs hover:shadow-md transition-shadow relative flex flex-col justify-between">
+            <div className="bg-white p-6 rounded-xl border border-slate-200 shadow-xs hover:shadow-md transition-shadow flex flex-col justify-between">
               <div>
-                <div className="w-12 h-12 rounded-xl bg-slate-900 text-white flex items-center justify-center font-bold text-lg mb-5 shadow-xs">
+                <div className="w-10 h-10 rounded-lg bg-[#132238] text-white flex items-center justify-center font-bold text-sm mb-4">
                   03
                 </div>
-                <h3 className="text-lg font-bold text-slate-900 mb-2">
+                <h3 className="text-base font-bold text-[#132238] mb-2">
                   Proposta Integrada
                 </h3>
-                <p className="text-sm text-slate-600 leading-relaxed">
-                  A Lyon compõe a proposta final com rigor documental, memórias de cálculo, certificados de conformidade e envio tempestivo dentro da plataforma oficial.
+                <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
+                  Consolidação da proposta comercial com planilha detalhada, certidões e conformidade técnica para submissão oficial.
                 </p>
               </div>
-              <div className="mt-6 pt-4 border-t border-slate-100 text-xs font-medium text-slate-500 flex items-center gap-1.5">
-                <FileCheck className="w-3.5 h-3.5 text-red-700" />
-                100% de conformidade documental
+              <div className="mt-6 pt-4 border-t border-slate-100 text-xs text-slate-500 flex items-center gap-1.5 font-medium">
+                <FileCheck className="w-3.5 h-3.5 text-[#132238]" />
+                Conformidade documental estrita
               </div>
             </div>
 
             {/* Step 4 */}
-            <div className="bg-white p-6 rounded-2xl border border-slate-200 shadow-xs hover:shadow-md transition-shadow relative flex flex-col justify-between">
+            <div className="bg-white p-6 rounded-xl border border-slate-200 shadow-xs hover:shadow-md transition-shadow flex flex-col justify-between">
               <div>
-                <div className="w-12 h-12 rounded-xl bg-slate-900 text-white flex items-center justify-center font-bold text-lg mb-5 shadow-xs">
+                <div className="w-10 h-10 rounded-lg bg-[#132238] text-white flex items-center justify-center font-bold text-sm mb-4">
                   04
                 </div>
-                <h3 className="text-lg font-bold text-slate-900 mb-2">
-                  Gestão & Acompanhamento
+                <h3 className="text-base font-bold text-[#132238] mb-2">
+                  Gestão até a Homologação
                 </h3>
-                <p className="text-sm text-slate-600 leading-relaxed">
-                  Acompanhamento minucioso de cada fase da concorrência, respostas a esclarecimentos técnicos e gestão da contratação de ponta a ponta.
+                <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
+                  Acompanhamento minucioso de cada fase da concorrência, respostas técnicas e suporte comercial até a formalização do fornecimento.
                 </p>
               </div>
-              <div className="mt-6 pt-4 border-t border-slate-100 text-xs font-medium text-slate-500 flex items-center gap-1.5">
-                <Truck className="w-3.5 h-3.5 text-red-700" />
-                Segurança até a homologação
+              <div className="mt-6 pt-4 border-t border-slate-100 text-xs text-slate-500 flex items-center gap-1.5 font-medium">
+                <Truck className="w-3.5 h-3.5 text-[#132238]" />
+                Segurança em todo o ciclo
               </div>
             </div>
           </div>
         </div>
       </section>
 
-      {/* ── SECTION: DIFERENCIAIS & CREDIBILIDADE ── */}
+      {/* ── SECTION: DIFERENCIAIS DE CREDIBILIDADE ── */}
       <section id="diferenciais" className="py-20 bg-white border-b border-slate-200">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center max-w-3xl mx-auto space-y-4 mb-16">
-            <div className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-red-800 bg-red-50 px-3 py-1 rounded-md border border-red-200">
-              <Shield className="w-3.5 h-3.5" />
-              Por Que Escolher a Lyon
+            <div className="flex items-center justify-center gap-2">
+              <div className="w-1 h-5 bg-red-600 rounded-full" />
+              <span className="text-xs font-bold uppercase tracking-wider text-[#132238]">
+                Diferenciais
+              </span>
             </div>
-            <h2 className="text-3xl sm:text-4xl font-extrabold text-slate-950 font-serif">
-              Pilares que fundamentam a nossa credibilidade
+            <h2 className="text-3xl sm:text-4xl font-extrabold text-[#132238] font-serif">
+              Por que fornecedores e clientes confiam na Lyon
             </h2>
             <p className="text-base text-slate-600">
-              Atuar no ambiente Petronect exige precisão cirúrgica. Veja os diferenciais
-              que tornam a Lyon a parceira de confiança para fornecedores e contratantes.
+              Precisão, celeridade e seriedade comercial no centro de cada oportunidade.
             </p>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {/* Card 1 */}
-            <div className="bg-slate-50 p-8 rounded-2xl border border-slate-200 hover:border-slate-300 transition-colors">
-              <div className="w-12 h-12 rounded-xl bg-red-100 text-red-800 flex items-center justify-center mb-6">
-                <ShieldCheck className="w-6 h-6" />
+            <div className="bg-slate-50 p-8 rounded-xl border border-slate-200 hover:border-slate-300 transition-colors">
+              <div className="w-12 h-12 rounded-lg bg-white border border-slate-200 text-[#132238] flex items-center justify-center mb-6 shadow-xs">
+                <ShieldCheck className="w-6 h-6 text-[#132238]" />
               </div>
-              <h3 className="text-xl font-bold text-slate-900 mb-3">
-                Conformidade & Compliance
+              <h3 className="text-lg font-bold text-[#132238] mb-2">
+                Conformidade & Rigor
               </h3>
               <p className="text-sm text-slate-600 leading-relaxed">
-                Cada edital da Petrobras impõe regras rígidas de qualificação técnica,
-                certificações e regularidade fiscal. A Lyon valida todos os dados
-                antes da submissão para eliminar riscos de inabilitação.
+                Verificação minuciosa de cada exigência técnica, certificação e padrão fiscal dos editais da Petrobras para assegurar elegibilidade total.
               </p>
             </div>
 
-            {/* Card 2 */}
-            <div className="bg-slate-50 p-8 rounded-2xl border border-slate-200 hover:border-slate-300 transition-colors">
-              <div className="w-12 h-12 rounded-xl bg-slate-900 text-white flex items-center justify-center mb-6">
-                <Clock className="w-6 h-6" />
+            <div className="bg-slate-50 p-8 rounded-xl border border-slate-200 hover:border-slate-300 transition-colors">
+              <div className="w-12 h-12 rounded-lg bg-white border border-slate-200 text-[#132238] flex items-center justify-center mb-6 shadow-xs">
+                <Clock className="w-6 h-6 text-[#132238]" />
               </div>
-              <h3 className="text-xl font-bold text-slate-900 mb-3">
+              <h3 className="text-lg font-bold text-[#132238] mb-2">
                 Celeridade de Resposta
               </h3>
               <p className="text-sm text-slate-600 leading-relaxed">
-                Prazos em tomadas de preço no Petronect costumam ser curtos. Nossa
-                comunicação direta com fabricantes parceiros nos permite cotar com
-                rapidez e precisão dentro das janelas de abertura.
+                Janelas de cotação no Petronect costumam ser curtas. Nossa comunicação direta com os fabricantes garante propostas rápidas e sem perda de prazos.
               </p>
             </div>
 
-            {/* Card 3 */}
-            <div className="bg-slate-50 p-8 rounded-2xl border border-slate-200 hover:border-slate-300 transition-colors">
-              <div className="w-12 h-12 rounded-xl bg-red-100 text-red-800 flex items-center justify-center mb-6">
-                <MapPin className="w-6 h-6" />
+            <div className="bg-slate-50 p-8 rounded-xl border border-slate-200 hover:border-slate-300 transition-colors">
+              <div className="w-12 h-12 rounded-lg bg-white border border-slate-200 text-[#132238] flex items-center justify-center mb-6 shadow-xs">
+                <MapPin className="w-6 h-6 text-red-600" />
               </div>
-              <h3 className="text-xl font-bold text-slate-900 mb-3">
-                Proximidade da Bacia de Campos
+              <h3 className="text-lg font-bold text-[#132238] mb-2">
+                Presença na Bacia de Campos
               </h3>
               <p className="text-sm text-slate-600 leading-relaxed">
-                Com sede em Campos dos Goytacazes e presença contínua no eixo do
-                Norte Fluminense, compreendemos a dinâmica logística, operacional
-                e contratual específica da indústria de energia offshore.
+                Localizada em Campos dos Goytacazes - RJ, a Lyon vive o dia a dia do setor offshore e das operações de suprimento no Norte Fluminense.
               </p>
             </div>
           </div>
         </div>
       </section>
 
-      {/* ── SECTION: SEJA UM FORNECEDOR PARCEIRO ── */}
-      <section id="fornecedores" className="py-20 bg-gradient-to-b from-slate-900 to-[#0c182b] text-white">
+      {/* ── SECTION: SEJA UM FORNECEDOR PARCEIRO (CARD AZUL MARINHO LIMPO) ── */}
+      <section id="fornecedores" className="py-16 bg-slate-50 border-b border-slate-200">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="bg-slate-800/60 rounded-3xl p-8 sm:p-12 lg:p-16 border border-slate-700/80 backdrop-blur-sm relative overflow-hidden">
-            <div className="absolute -top-24 -right-24 w-80 h-80 bg-red-900/30 rounded-full blur-3xl pointer-events-none" />
+          <div className="bg-[#132238] text-white rounded-2xl p-8 sm:p-12 border border-slate-800 shadow-md relative overflow-hidden">
+            {/* Detalhe sutil em vermelho na borda lateral */}
+            <div className="absolute top-0 bottom-0 left-0 w-1.5 bg-red-600" />
 
-            <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center relative">
-              <div className="lg:col-span-8 space-y-6">
-                <div className="inline-flex items-center gap-2 px-3 py-1 rounded-md text-xs font-bold uppercase tracking-wider bg-red-950/80 text-red-300 border border-red-800/60">
-                  <Users className="w-3.5 h-3.5" />
+            <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+              <div className="lg:col-span-8 space-y-4">
+                <div className="inline-flex items-center gap-2 px-3 py-1 rounded-md text-xs font-bold uppercase tracking-wider bg-slate-800 text-slate-200 border border-slate-700">
+                  <Users className="w-3.5 h-3.5 text-red-400" />
                   Rede de Fornecedores Homologados
                 </div>
 
-                <h2 className="text-3xl sm:text-4xl font-extrabold text-white font-serif leading-tight">
-                  Sua fábrica nas maiores requisições do setor sem burocracia interna.
+                <h2 className="text-2xl sm:text-3xl font-extrabold text-white font-serif leading-tight">
+                  Sua fábrica nas principais cotações do setor de energia.
                 </h2>
 
-                <p className="text-base sm:text-lg text-slate-300 leading-relaxed">
-                  Se a sua empresa fabrica ou distribui materiais industriais, válvulas,
-                  conexões, materiais elétricos, EPIs, peças mecânicas ou suprimentos
-                  técnicos, você pode se conectar à Lyon para receber solicitações de
-                  cotação recorrentes sempre que novas oportunidades surgirem no Petronect.
+                <p className="text-sm sm:text-base text-slate-300 leading-relaxed">
+                  Se a sua empresa produz materiais industriais, válvulas, conexões,
+                  materiais elétricos, EPIs ou peças mecânicas, cadastre seu portfólio
+                  com a Lyon para receber solicitações de cotação sempre que novas
+                  demandas surgirem no Petronect.
                 </p>
 
-                <ul className="grid grid-cols-1 sm:grid-cols-2 gap-3 text-sm text-slate-300">
-                  <li className="flex items-center gap-2">
-                    <CheckCircle2 className="w-4 h-4 text-red-400 shrink-0" />
-                    <span>Sem custos de inscrição ou mensalidades</span>
-                  </li>
-                  <li className="flex items-center gap-2">
-                    <CheckCircle2 className="w-4 h-4 text-red-400 shrink-0" />
-                    <span>Cotações com especificações técnicas diretas</span>
-                  </li>
-                  <li className="flex items-center gap-2">
-                    <CheckCircle2 className="w-4 h-4 text-red-400 shrink-0" />
-                    <span>Acesso a contratos corporativos de grande porte</span>
-                  </li>
-                  <li className="flex items-center gap-2">
-                    <CheckCircle2 className="w-4 h-4 text-red-400 shrink-0" />
-                    <span>Relacionamento comercial ético e transparente</span>
-                  </li>
-                </ul>
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 text-xs sm:text-sm text-slate-300 pt-2">
+                  <div className="flex items-center gap-2">
+                    <CheckCircle2 className="w-4 h-4 text-emerald-400 shrink-0" />
+                    <span>Sem custos de adesão ou mensalidades</span>
+                  </div>
+                  <div className="flex items-center gap-2">
+                    <CheckCircle2 className="w-4 h-4 text-emerald-400 shrink-0" />
+                    <span>Acesso a demandas da Petrobras</span>
+                  </div>
+                </div>
               </div>
 
-              <div className="lg:col-span-4 flex flex-col gap-4">
+              <div className="lg:col-span-4 flex flex-col gap-3">
                 <a
                   href={getWhatsAppLink(
-                    "Olá, Rogério! Gostaria de cadastrar minha empresa e catálogo na Rede de Fornecedores da Lyon para oportunidades no Petronect."
+                    "Olá, Rogério! Gostaria de cadastrar minha indústria na Rede de Fornecedores da Lyon para oportunidades no Petronect."
                   )}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="w-full inline-flex items-center justify-center gap-2.5 px-6 py-4 rounded-xl font-bold text-white bg-red-800 hover:bg-red-900 shadow-xl shadow-red-950/50 transition-all hover:scale-102 text-center"
+                  className="w-full inline-flex items-center justify-center gap-2.5 px-6 py-3.5 rounded-xl font-bold text-[#132238] bg-white hover:bg-slate-100 shadow-xs transition-colors text-center text-sm"
                 >
-                  <Handshake className="w-5 h-5" />
-                  <span>Cadastrar Empresa no WhatsApp</span>
+                  <Handshake className="w-4 h-4 text-[#132238]" />
+                  <span>Cadastrar Empresa via WhatsApp</span>
                 </a>
 
                 <a
                   href="#contato"
-                  className="w-full inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-xl font-medium text-slate-300 bg-slate-900/80 hover:bg-slate-900 border border-slate-700 transition-colors text-center text-sm"
+                  className="w-full inline-flex items-center justify-center gap-2 px-6 py-3 rounded-xl font-medium text-slate-300 bg-slate-800 hover:bg-slate-700 border border-slate-700 transition-colors text-center text-xs"
                 >
-                  <span>Preencher Formulário de Cadastro</span>
+                  <span>Preencher Formulário Institucional</span>
                 </a>
               </div>
             </div>
@@ -723,50 +740,51 @@ export default function HomePage() {
       <section id="contato" className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center max-w-3xl mx-auto space-y-4 mb-16">
-            <div className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-red-800 bg-red-50 px-3 py-1 rounded-md border border-red-200">
-              <Mail className="w-3.5 h-3.5" />
-              Canais Diretos
+            <div className="flex items-center justify-center gap-2">
+              <div className="w-1 h-5 bg-red-600 rounded-full" />
+              <span className="text-xs font-bold uppercase tracking-wider text-[#132238]">
+                Canais Diretos
+              </span>
             </div>
-            <h2 className="text-3xl sm:text-4xl font-extrabold text-slate-950 font-serif">
-              Fale com a Lyon Soluções Comerciais
+            <h2 className="text-3xl sm:text-4xl font-extrabold text-[#132238] font-serif">
+              Fale com a Diretoria da Lyon
             </h2>
             <p className="text-base text-slate-600">
-              Estamos à disposição para apresentar nossa atuação, avaliar seu catálogo de
-              produtos ou esclarecer dúvidas sobre processos de fornecimento.
+              Estamos prontos para atender sua demanda, analisar catálogos de fornecedores ou tirar dúvidas operacionais.
             </p>
           </div>
 
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
-            {/* Left: Official Contact Card */}
+            {/* Left: Contact Information Card */}
             <div className="lg:col-span-5 space-y-6">
-              <div className="bg-slate-900 text-white rounded-2xl p-8 border border-slate-800 shadow-xl space-y-6">
+              <div className="bg-slate-50 rounded-2xl p-8 border-2 border-slate-200 shadow-sm space-y-6">
                 <div>
-                  <span className="text-xs font-bold uppercase tracking-widest text-red-400">
-                    Diretoria Executiva
+                  <span className="text-xs font-bold uppercase tracking-widest text-[#132238]">
+                    Diretoria Comercial
                   </span>
-                  <h3 className="text-2xl font-bold font-serif text-white mt-1">
+                  <h3 className="text-2xl font-bold font-serif text-[#132238] mt-1">
                     Rogério Parente
                   </h3>
-                  <p className="text-sm text-slate-400">
-                    Diretor Geral / Fundador — Lyon Soluções Comerciais
+                  <p className="text-sm text-slate-600">
+                    Diretor Geral — Lyon Soluções Comerciais
                   </p>
                 </div>
 
-                <div className="space-y-4 pt-2 border-t border-slate-800 text-sm">
+                <div className="space-y-4 pt-2 border-t border-slate-200 text-sm">
                   {/* Phone / WhatsApp */}
                   <div className="flex items-start gap-3.5">
-                    <div className="w-9 h-9 rounded-lg bg-red-950/80 border border-red-800/60 flex items-center justify-center shrink-0 text-red-400 mt-0.5">
-                      <Phone className="w-4 h-4" />
+                    <div className="w-9 h-9 rounded-lg bg-white border border-slate-300 flex items-center justify-center shrink-0 text-[#132238] shadow-xs mt-0.5">
+                      <Phone className="w-4 h-4 text-emerald-600" />
                     </div>
                     <div>
-                      <div className="text-xs text-slate-400 uppercase font-semibold">
+                      <div className="text-xs text-slate-500 uppercase font-semibold">
                         Telefone & WhatsApp
                       </div>
                       <a
                         href={getWhatsAppLink()}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="text-base font-bold text-white hover:text-red-400 transition-colors"
+                        className="text-base font-bold text-[#132238] hover:underline"
                       >
                         {phoneDisplay}
                       </a>
@@ -775,16 +793,16 @@ export default function HomePage() {
 
                   {/* Email */}
                   <div className="flex items-start gap-3.5">
-                    <div className="w-9 h-9 rounded-lg bg-slate-800 border border-slate-700 flex items-center justify-center shrink-0 text-slate-300 mt-0.5">
-                      <Mail className="w-4 h-4" />
+                    <div className="w-9 h-9 rounded-lg bg-white border border-slate-300 flex items-center justify-center shrink-0 text-slate-700 shadow-xs mt-0.5">
+                      <Mail className="w-4 h-4 text-[#132238]" />
                     </div>
                     <div>
-                      <div className="text-xs text-slate-400 uppercase font-semibold">
+                      <div className="text-xs text-slate-500 uppercase font-semibold">
                         E-mail Comercial
                       </div>
                       <a
                         href={`mailto:${emailDisplay}`}
-                        className="text-sm text-slate-200 hover:text-white font-medium break-all"
+                        className="text-sm text-slate-800 hover:text-[#132238] font-medium break-all"
                       >
                         {emailDisplay}
                       </a>
@@ -793,69 +811,54 @@ export default function HomePage() {
 
                   {/* Location */}
                   <div className="flex items-start gap-3.5">
-                    <div className="w-9 h-9 rounded-lg bg-slate-800 border border-slate-700 flex items-center justify-center shrink-0 text-slate-300 mt-0.5">
-                      <MapPin className="w-4 h-4" />
+                    <div className="w-9 h-9 rounded-lg bg-white border border-slate-300 flex items-center justify-center shrink-0 text-slate-700 shadow-xs mt-0.5">
+                      <MapPin className="w-4 h-4 text-red-600" />
                     </div>
                     <div>
-                      <div className="text-xs text-slate-400 uppercase font-semibold">
+                      <div className="text-xs text-slate-500 uppercase font-semibold">
                         Sede Operacional
                       </div>
-                      <div className="text-sm text-slate-200 font-medium">
+                      <div className="text-sm text-slate-900 font-medium">
                         {addressDisplay}
                       </div>
-                      <div className="text-xs text-slate-400 mt-0.5">
+                      <div className="text-xs text-slate-500 mt-0.5">
                         Norte Fluminense • Bacia de Campos
                       </div>
                     </div>
                   </div>
                 </div>
 
-                <div className="pt-4 border-t border-slate-800">
+                <div className="pt-2 border-t border-slate-200">
                   <a
                     href={getWhatsAppLink()}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="w-full flex items-center justify-center gap-2 py-3 px-4 rounded-xl bg-red-800 hover:bg-red-900 text-white font-semibold text-sm transition-all shadow-md"
+                    className="w-full flex items-center justify-center gap-2 py-3 px-4 rounded-xl bg-[#132238] hover:bg-[#1b3150] text-white font-semibold text-sm transition-all shadow-sm"
                   >
-                    <Phone className="w-4 h-4" />
+                    <Phone className="w-4 h-4 text-emerald-400" />
                     <span>Iniciar conversa no WhatsApp</span>
                   </a>
                 </div>
               </div>
-
-              {/* Informative Note */}
-              <div className="p-5 rounded-xl bg-slate-50 border border-slate-200 text-xs text-slate-600 leading-relaxed space-y-2">
-                <div className="font-semibold text-slate-900 flex items-center gap-1.5">
-                  <Sparkles className="w-4 h-4 text-red-700" />
-                  Atendimento Especializado
-                </div>
-                <p>
-                  Respondemos prontamente a solicitações de indústrias que desejam fornecer
-                  ou a empresas buscando cotações equalizadas no setor de Óleo & Gás.
-                </p>
-              </div>
             </div>
 
             {/* Right: Message Form */}
-            <div className="lg:col-span-7 bg-slate-50 p-8 sm:p-10 rounded-2xl border border-slate-200">
-              <h3 className="text-xl font-bold text-slate-900 mb-2">
+            <div className="lg:col-span-7 bg-white p-8 sm:p-10 rounded-2xl border border-slate-200 shadow-sm">
+              <h3 className="text-xl font-bold text-[#132238] mb-2 font-serif">
                 Envie uma mensagem
               </h3>
               <p className="text-sm text-slate-600 mb-6">
-                Preencha o formulário abaixo. Se preferir, você também pode enviar a
-                mensagem pronta direto para o WhatsApp do Rogério.
+                Preencha os campos abaixo para receber nosso contato ou encaminhe direto ao WhatsApp do Rogério.
               </p>
 
               {formSubmitted ? (
                 <div className="bg-emerald-50 border border-emerald-200 rounded-xl p-6 text-center space-y-4">
                   <CheckCircle2 className="w-12 h-12 text-emerald-600 mx-auto" />
                   <h4 className="text-lg font-bold text-emerald-950">
-                    Mensagem estruturada com sucesso!
+                    Mensagem pronta para envio!
                   </h4>
                   <p className="text-sm text-emerald-800 max-w-md mx-auto">
-                    Obrigado pelo contato. Para acelerar o retorno imediato do Rogério
-                    Parente, você pode clicar abaixo para abrir a conversa no WhatsApp
-                    com estes dados:
+                    Clique no botão abaixo para abrir a conversa no WhatsApp do Rogério Parente com seus dados preenchidos:
                   </p>
                   <button
                     type="button"
@@ -871,7 +874,7 @@ export default function HomePage() {
                       onClick={() => setFormSubmitted(false)}
                       className="text-xs text-slate-500 hover:underline"
                     >
-                      Enviar outra mensagem
+                      Preencher novamente
                     </button>
                   </div>
                 </div>
@@ -893,7 +896,7 @@ export default function HomePage() {
                         value={formData.nome}
                         onChange={handleInputChange}
                         placeholder="Ex: Carlos Silva"
-                        className="w-full px-3.5 py-2.5 rounded-lg border border-slate-300 bg-white text-slate-900 text-sm focus:outline-hidden focus:ring-2 focus:ring-red-800/30 focus:border-red-800"
+                        className="w-full px-3.5 py-2.5 rounded-lg border border-slate-300 bg-white text-slate-900 text-sm focus:outline-hidden focus:ring-2 focus:ring-[#132238]/30 focus:border-[#132238]"
                       />
                     </div>
 
@@ -910,8 +913,8 @@ export default function HomePage() {
                         name="empresa"
                         value={formData.empresa}
                         onChange={handleInputChange}
-                        placeholder="Ex: Indústria Metalúrgica XYZ"
-                        className="w-full px-3.5 py-2.5 rounded-lg border border-slate-300 bg-white text-slate-900 text-sm focus:outline-hidden focus:ring-2 focus:ring-red-800/30 focus:border-red-800"
+                        placeholder="Ex: Indústria XYZ"
+                        className="w-full px-3.5 py-2.5 rounded-lg border border-slate-300 bg-white text-slate-900 text-sm focus:outline-hidden focus:ring-2 focus:ring-[#132238]/30 focus:border-[#132238]"
                       />
                     </div>
                   </div>
@@ -932,7 +935,7 @@ export default function HomePage() {
                         value={formData.telefone}
                         onChange={handleInputChange}
                         placeholder="Ex: (22) 99999-9999"
-                        className="w-full px-3.5 py-2.5 rounded-lg border border-slate-300 bg-white text-slate-900 text-sm focus:outline-hidden focus:ring-2 focus:ring-red-800/30 focus:border-red-800"
+                        className="w-full px-3.5 py-2.5 rounded-lg border border-slate-300 bg-white text-slate-900 text-sm focus:outline-hidden focus:ring-2 focus:ring-[#132238]/30 focus:border-[#132238]"
                       />
                     </div>
 
@@ -951,7 +954,7 @@ export default function HomePage() {
                         value={formData.email}
                         onChange={handleInputChange}
                         placeholder="Ex: contato@empresa.com.br"
-                        className="w-full px-3.5 py-2.5 rounded-lg border border-slate-300 bg-white text-slate-900 text-sm focus:outline-hidden focus:ring-2 focus:ring-red-800/30 focus:border-red-800"
+                        className="w-full px-3.5 py-2.5 rounded-lg border border-slate-300 bg-white text-slate-900 text-sm focus:outline-hidden focus:ring-2 focus:ring-[#132238]/30 focus:border-[#132238]"
                       />
                     </div>
                   </div>
@@ -968,7 +971,7 @@ export default function HomePage() {
                       name="tipo"
                       value={formData.tipo}
                       onChange={handleInputChange}
-                      className="w-full px-3.5 py-2.5 rounded-lg border border-slate-300 bg-white text-slate-900 text-sm focus:outline-hidden focus:ring-2 focus:ring-red-800/30 focus:border-red-800"
+                      className="w-full px-3.5 py-2.5 rounded-lg border border-slate-300 bg-white text-slate-900 text-sm focus:outline-hidden focus:ring-2 focus:ring-[#132238]/30 focus:border-[#132238]"
                     >
                       <option value="fornecedor">
                         Quero ser Fornecedor Parceiro (cadastrar catálogo/produtos)
@@ -995,15 +998,15 @@ export default function HomePage() {
                       rows={4}
                       value={formData.mensagem}
                       onChange={handleInputChange}
-                      placeholder="Descreva resumidamente os tipos de materiais que sua fábrica fornece ou a sua dúvida..."
-                      className="w-full px-3.5 py-2.5 rounded-lg border border-slate-300 bg-white text-slate-900 text-sm focus:outline-hidden focus:ring-2 focus:ring-red-800/30 focus:border-red-800 resize-y"
+                      placeholder="Descreva resumidamente os tipos de materiais que sua fábrica fornece..."
+                      className="w-full px-3.5 py-2.5 rounded-lg border border-slate-300 bg-white text-slate-900 text-sm focus:outline-hidden focus:ring-2 focus:ring-[#132238]/30 focus:border-[#132238] resize-y"
                     />
                   </div>
 
                   <div className="pt-2 flex flex-col sm:flex-row gap-3 items-center">
                     <button
                       type="submit"
-                      className="w-full sm:w-auto px-6 py-3 rounded-lg text-sm font-semibold text-white bg-slate-900 hover:bg-slate-800 transition-colors flex items-center justify-center gap-2"
+                      className="w-full sm:w-auto px-6 py-3 rounded-lg text-sm font-semibold text-white bg-[#132238] hover:bg-[#1b3150] transition-colors flex items-center justify-center gap-2"
                     >
                       <Send className="w-4 h-4" />
                       <span>Enviar Mensagem</span>
@@ -1012,9 +1015,9 @@ export default function HomePage() {
                     <button
                       type="button"
                       onClick={handleSendToWhatsApp}
-                      className="w-full sm:w-auto px-6 py-3 rounded-lg text-sm font-semibold text-white bg-red-800 hover:bg-red-900 transition-colors flex items-center justify-center gap-2"
+                      className="w-full sm:w-auto px-6 py-3 rounded-lg text-sm font-semibold text-slate-700 bg-slate-100 hover:bg-slate-200 border border-slate-300 transition-colors flex items-center justify-center gap-2"
                     >
-                      <Phone className="w-4 h-4" />
+                      <Phone className="w-4 h-4 text-emerald-600" />
                       <span>Enviar pelo WhatsApp</span>
                     </button>
                   </div>
@@ -1025,16 +1028,16 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* ── FOOTER ── */}
-      <footer className="bg-slate-950 text-slate-400 py-12 border-t border-slate-800 text-xs">
+      {/* ── FOOTER (AZUL MARINHO CORPORATIVO & DISCRETO) ── */}
+      <footer className="bg-[#0e1726] text-slate-400 py-12 border-t border-slate-800 text-xs">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 md:grid-cols-12 gap-8 pb-10 border-b border-slate-800/80">
+          <div className="grid grid-cols-1 md:grid-cols-12 gap-8 pb-10 border-b border-slate-800">
             {/* Brand column */}
             <div className="md:col-span-5 space-y-4">
               <div className="flex items-center gap-3">
-                <div className="w-10 h-10 p-1 rounded-lg bg-white flex items-center justify-center">
+                <div className="w-10 h-10 p-1.5 rounded-lg bg-white flex items-center justify-center">
                   <Image
-                    src="/logo.png"
+                    src="/logo-navy.svg"
                     alt="Logo Lyon"
                     width={32}
                     height={32}
@@ -1045,15 +1048,15 @@ export default function HomePage() {
                   <span className="text-lg font-bold font-serif text-white tracking-wide">
                     LYON
                   </span>
-                  <span className="block text-[10px] uppercase font-semibold text-red-400">
+                  <span className="block text-[10px] uppercase font-semibold text-slate-400">
                     Soluções Comerciais
                   </span>
                 </div>
               </div>
-              <p className="text-slate-400 max-w-sm leading-relaxed">
+              <p className="text-slate-400 max-w-sm leading-relaxed text-xs">
                 Integradora comercial sediada em Campos dos Goytacazes - RJ.
-                Equalização de cotações industriais e participação em oportunidades
-                e editais corporativos no portal Petronect e setor de Óleo & Gás.
+                Captação de demandas corporativas, equalização de cotações industriais
+                e submissão de propostas para a Petrobras via portal Petronect.
               </p>
             </div>
 
@@ -1094,31 +1097,31 @@ export default function HomePage() {
             {/* Direct Contact */}
             <div className="md:col-span-4 space-y-3">
               <div className="text-slate-200 font-semibold uppercase tracking-wider text-xs">
-                Contato & Atendimento
+                Atendimento
               </div>
-              <div className="space-y-2">
+              <div className="space-y-2 text-xs">
                 <div>
                   <strong className="text-slate-200 block">Rogério Parente</strong>
                   <span className="text-slate-400">Diretor Geral</span>
                 </div>
                 <div>
-                  <span className="block text-slate-400">Telefone:</span>
+                  <span className="text-slate-400">WhatsApp: </span>
                   <a
                     href={getWhatsAppLink()}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="text-red-400 hover:underline font-semibold"
+                    className="text-white hover:underline font-semibold"
                   >
                     {phoneDisplay}
                   </a>
                 </div>
                 <div>
-                  <span className="block text-slate-400">E-mail:</span>
+                  <span className="text-slate-400">E-mail: </span>
                   <span className="text-slate-300">{emailDisplay}</span>
                 </div>
                 <div>
-                  <span className="block text-slate-400">Localização:</span>
-                  <span className="text-slate-300">Campos dos Goytacazes - RJ</span>
+                  <span className="text-slate-400">Sede: </span>
+                  <span className="text-slate-300">{addressDisplay}</span>
                 </div>
               </div>
             </div>
@@ -1129,7 +1132,7 @@ export default function HomePage() {
               &copy; {new Date().getFullYear()} Lyon Soluções Comerciais. Todos os direitos reservados.
             </div>
             <div>
-              Integradora comercial independente • Operação em Campos dos Goytacazes/RJ
+              Campos dos Goytacazes - RJ • Bacia de Campos
             </div>
           </div>
         </div>
