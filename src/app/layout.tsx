@@ -27,10 +27,12 @@ export const metadata: Metadata = {
   authors: [{ name: "Lyon Soluções Comerciais" }],
   icons: {
     icon: [
+      { url: "/logo.svg", type: "image/svg+xml" },
       { url: "/icon.png", type: "image/png" },
       { url: "/favicon.ico" },
     ],
-    apple: "/apple-icon.png",
+    shortcut: "/logo.svg",
+    apple: "/logo.svg",
   },
   openGraph: {
     title: "Lyon Soluções Comerciais | Conectando Empresas, Fornecedores e Oportunidades",
